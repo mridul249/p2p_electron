@@ -68,10 +68,10 @@ project/
    Create a `.env` file in the project root directory and add the server IP address.
 
    ```
-   SERVER_IP=192.168.157.91
+   SERVER_IP=YOUR_LAN_IP
    ```
 
-   Replace `192.168.157.91` with the actual IP address of your server.
+   Replace `YOUR_LAN_IP` with the actual IP address of your server.
 
 3. **Install Top-Level Dependencies:**
 
@@ -244,10 +244,10 @@ Once both the server and client are running:
 Create a `.env` file in the project root directory to store environment variables. This file should contain the server's IP address, which is crucial for the client to communicate with the server.
 
 ```
-SERVER_IP=192.168.157.91
+SERVER_IP=YOUR_LAN_IP
 ```
 
-**Note:** Replace `192.168.157.91` with the actual IP address of your server. This IP address should be accessible to all clients within the local network.
+**Note:** Replace `YOUR_LAN_IP` with the actual IP address of your server. This IP address should be accessible to all clients within the local network.
 
 ## Security Considerations
 
