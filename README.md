@@ -14,8 +14,6 @@ The P2P File Sharing Application is an Electron-based desktop application design
 - **Concurrent Operations:** Handles multiple file transfers simultaneously without performance degradation.
 - **Responsive UI:** Intuitive and user-friendly interface for seamless interaction.
 
-![image](https://github.com/user-attachments/assets/b6e0da80-dec3-4403-a3be-bf6b3f7b2a7f)
-![image](https://github.com/user-attachments/assets/4ef4fc2b-e5f6-4715-968c-0b2de5bf3008)
 
 
 ## Technologies Used
