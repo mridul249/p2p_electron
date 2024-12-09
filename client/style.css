@@ -1,33 +1,73 @@
+/* client/style.css */
+
 body {
-    font-family: Arial, sans-serif;
-    background: #F0F4F8;
-    color: #1D3557;
-  }
-  .login-section, .actions {
-    margin: 20px;
-  }
-  input {
-    margin: 5px;
-  }
-  button {
-    margin: 5px;
-    background: #A8DADC;
-    border: none;
-    padding: 8px 12px;
-    color: #fff;
-    cursor: pointer;
-  }
-  button:hover {
-    background: #457B9D;
-  }
-  ul {
-    list-style: none;
-    padding: 0;
-  }
-  li {
-    margin: 5px 0;
-    background: #FFFFFF;
-    padding: 5px;
-    border: 1px solid #ccc;
-  }
-  
+  font-family: Arial, sans-serif;
+  background: #F0F4F8;
+  color: #1D3557;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #1D3557;
+}
+
+.login-section, .actions {
+  margin: 20px auto;
+  max-width: 600px;
+  padding: 20px;
+  background: #FFFFFF;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  margin: 5px 0;
+  padding: 10px 15px;
+  background: #A8DADC;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button:hover {
+  background: #457B9D;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin: 10px 0;
+  padding: 10px;
+  background: #E0FBFC;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+progress {
+  height: 20px;
+  border-radius: 4px;
+}
+
+#downloadStatus {
+  display: block;
+  margin-top: 10px;
+  text-align: center;
+}

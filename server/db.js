@@ -1,34 +1,41 @@
+// server/db.js
+
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 
-const dbPath = path.join(__dirname, 'p2p.db');
-const db = new sqlite3.Database(dbPath);
+const dbPath = path.resolve(__dirname, 'p2p.db');
+const db = new sqlite3.Database(dbPath, (err) => {
+  if (err) {
+    console.error('Could not connect to SQLite database:', err);
+  } else {
+    console.log('Connected to SQLite database.');
+  }
+});
 
+// Create tables if they don't exist
 db.serialize(() => {
   db.run(`
     CREATE TABLE IF NOT EXISTS peers (
-      username TEXT PRIMARY KEY,
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      username TEXT UNIQUE,
       password TEXT,
       ip TEXT,
       port INTEGER,
-      last_seen TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-      last_heartbeat TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      last_seen TEXT,
+      last_heartbeat TEXT
     )
   `);
 
   db.run(`
     CREATE TABLE IF NOT EXISTS files (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
       filename TEXT,
       username TEXT,
       peer_ip TEXT,
       peer_port INTEGER,
-      shared_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-      FOREIGN KEY(username) REFERENCES peers(username)
+      shared_time TEXT
     )
   `);
-
-  db.run(`CREATE INDEX IF NOT EXISTS idx_filename ON files(filename)`);
-  db.run(`CREATE INDEX IF NOT EXISTS idx_username ON files(username)`);
 });
 
 module.exports = db;

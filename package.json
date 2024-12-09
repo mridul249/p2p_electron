@@ -4,9 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start-server": "node server/server.js",
-    "start-electron": "cd client && npm start"
+    "start-client": "electron client/main.js",
+    "start": "concurrently \"npm run start-server\" \"npm run start-client\""
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2"
   },
   "keywords": [],
   "author": "",
