@@ -6,23 +6,28 @@ const fs = require('fs');
 const path = require('path');
 const portfinder = require('portfinder'); // ensure it's installed
 
-const SERVER_URL = 'http://192.168.157.91:5001';
+const SERVER_URL = 'http://process.env.SERVER_IP:5001';
 let currentUser = null;
 let currentPort = 60000; // default port
 let currentIP = getLocalIP();
+require('dotenv').config()
 
 // Function to get local IP address
 function getLocalIP() {
   const os = require('os');
   const interfaces = os.networkInterfaces();
+
   for (let iface of Object.values(interfaces)) {
     for (let alias of iface) {
       if (alias.family === 'IPv4' && !alias.internal) {
-        return alias.address;
+        if (iface[0].netmask) { // Check for non-ethernet interface
+          return alias.address;
+        }
       }
     }
   }
-  return '127.0.0.1';
+
+  return 'process.env.SERVER_IP';
 }
 
 // Function to find a free port
@@ -45,6 +50,7 @@ function startPeerServer() {
 window.registerUser = function () {
   const username = document.getElementById('username').value.trim();
   const password = document.getElementById('password').value.trim();
+  
   if (!username || !password) {
     alert('Please enter both username and password.');
     return;
@@ -69,7 +75,7 @@ window.registerUser = function () {
 window.login = async function () {
   const username = document.getElementById('username').value.trim();
   const password = document.getElementById('password').value.trim();
-  
+
   if (!username || !password) {
     alert('Please enter both username and password.');
     return;

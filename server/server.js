@@ -1,18 +1,19 @@
 // server/server.js
 
+require('dotenv').config()
 const express = require('express');
 const bodyParser = require('body-parser');
 const db = require('./db');
 const cors = require('cors');
 const { DateTime } = require('luxon');
 const cleanupInactivePeers = require('./cleanup');
-
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
 const PORT = 5001;
-const HOST = '192.168.157.91'; // Update to your server's IP
+const HOST = process.env.SERVER_IP; // Update to your server's IP
+console.log('SERVER_IP:', process.env.SERVER_IP);
 
 setInterval(cleanupInactivePeers, 30000);
 

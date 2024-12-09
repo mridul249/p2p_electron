@@ -9,7 +9,8 @@
     "start": "concurrently \"npm run start-server\" \"npm run start-client\""
   },
   "dependencies": {
-    "concurrently": "^8.2.2"
+    "concurrently": "^8.2.2",
+    "dotenv": "^16.4.7"
   },
   "keywords": [],
   "author": "",
