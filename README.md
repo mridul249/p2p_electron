@@ -59,8 +59,8 @@ project/
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/yourusername/p2p-file-sharing.git
-   cd p2p-file-sharing
+   git clone https://github.com/mridul249/p2p_electron.git
+   cd p2p_electron
    ```
 
 2. **Set Up Environment Variables:**
