@@ -2,36 +2,67 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>P2P File Sharing</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>P2P File Sharing</h1>
-  
-  <div class="login-section">
-    <input type="text" id="username" placeholder="Username" />
-    <input type="password" id="password" placeholder="Password" />
-    <button onclick="registerUser()">Sign Up</button>
-    <button onclick="login()">Login</button>
-  </div>
+  <div class="container">
+    <header>
+      <h1>P2P File Sharing</h1>
+      <p class="tagline">Effortless sharing made beautiful</p>
+    </header>
 
-  <div class="actions" style="display:none;">
-    <h2>Share Files</h2>
-    <button onclick="shareFiles()">Share New File</button>
+    <main>
+      <!-- Login Section -->
+      <section class="login-section">
+        <h2>Welcome Back</h2>
+        <p>Sign in or create an account to start sharing files</p>
+        <div class="form-group">
+          <input type="text" id="username" placeholder="Enter your username" class="input-field" />
+          <input type="password" id="password" placeholder="Enter your password" class="input-field" />
+        </div>
+        <div class="button-group">
+          <button class="btn btn-primary" onclick="login()">Login</button>
+          <button class="btn btn-secondary" onclick="registerUser()">Sign Up</button>
+        </div>
+      </section>
 
-    <h2>Search Files</h2>
-    <input type="text" id="searchFilename" placeholder="Filename" />
-    <input type="text" id="searchUser" placeholder="Username" />
-    <button onclick="searchFiles()">Search</button>
-    <button onclick="clearSearch()">Clear</button>
-    <button onclick="refreshFiles()">Refresh Files</button>
+      <!-- File Sharing Section -->
+      <section class="actions" style="display: none;">
+        <div class="file-management">
+          <h2>Share Your Files</h2>
+          <button class="btn btn-primary btn-full" onclick="shareFiles()">Share a New File</button>
+        </div>
 
-    <h2>Available Files</h2>
-    <ul id="filesList"></ul>
+        <!-- Search Section -->
+        <div class="search-files">
+          <h2>Find Files</h2>
+          <div class="form-group">
+            <input type="text" id="searchFilename" placeholder="Search by filename" class="input-field" />
+            <input type="text" id="searchUser" placeholder="Search by username" class="input-field" />
+          </div>
+          <div class="button-group">
+            <button class="btn btn-primary" onclick="searchFiles()">Search</button>
+            <button class="btn btn-secondary" onclick="clearSearch()">Clear</button>
+            <button class="btn btn-tertiary" onclick="refreshFiles()">Refresh</button>
+          </div>
+        </div>
 
-    <h2>Download Progress</h2>
-    <progress id="downloadProgress" value="0" max="100" style="width: 100%;"></progress>
-    <span id="downloadStatus">No downloads in progress.</span>
+        <!-- Available Files Section -->
+        <div class="files-section">
+          <h2>Available Files</h2>
+          <ul id="filesList"></ul>
+        </div>
+
+        <!-- Download Progress -->
+        <div class="download-section">
+          <h2>Download Progress</h2>
+          <progress id="downloadProgress" value="0" max="100"></progress>
+          <span id="downloadStatus">No downloads in progress.</span>
+        </div>
+      </section>
+    </main>
   </div>
 
   <script src="renderer.js"></script>
