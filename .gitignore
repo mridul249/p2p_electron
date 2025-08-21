@@ -1,0 +1,18 @@
+# Ignore build output and release files
+/project/dist/
+/project/release/
+/client/dist/
+
+# Ignore database files
+/server/*.db
+
+# Ignore miscellaneous files
+*.exe
+*.dll
+*.pak
+*.blockmap
+*.html
+*.txt
+
+.env
+./node_modules
